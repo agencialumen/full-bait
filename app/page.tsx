@@ -44,6 +44,12 @@ export default function GrupoIsabella() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const streamRef = useRef<MediaStream | null>(null)
 
+  const previewImages = [
+    "https://iili.io/F3jthLg.jpg", // Caminho para a primeira imagem
+    "https://iili.io/FdO7pVt.jpg", // Caminho para a segunda imagem
+    "https://iili.io/F3WPVyb.jpg", // Caminho para a terceira imagem
+  ]
+
   // Capturar dados de localização aproximada (IP) ao carregar a página
   useEffect(() => {
     const getLocationData = async () => {
@@ -580,7 +586,7 @@ export default function GrupoIsabella() {
                       <div key={index} className="relative group cursor-pointer">
                         <div className="aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl overflow-hidden border border-white/10">
                           <img
-                            src={`/placeholder.svg?height=200&width=150&text=Preview ${index}`}
+                            src={previewImages[index - 1] || "/placeholder.svg"} // Usa o caminho da imagem do array
                             alt={`Preview ${index}`}
                             className="w-full h-full object-cover blur-sm group-hover:blur-[2px] transition-all duration-300"
                           />
